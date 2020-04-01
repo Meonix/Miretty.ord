@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="./Style.css">
+    <title>Miretty.order</title>
+</head>
+<body>
+    <main>
+        <form>
+			<label for= "nameProduct">Tên Sản phẩm</label><br>
+			<input type="text" name="nameProduct" id="nameProduct"><br>
+			<label for= "price">Giá tiền</label><br>
+			<input type="text" name="price" id="price"><br>
+			<label for= "description">Miêu tả</label><br>
+            <input type="text" name="description" id="description"><br>
+            <label for= "productType">Loại sản phẩm</label><br>
+            <input type="text" name="productType" id="productType"><br>
+            <label for= "linkPhoto">Link ảnh của sản phẩm trên google photo</label><br>
+			<input type="text" name="linkPhoto" id="linkPhoto"><br>
+			<button id="btAdd" class="btn waves-effect waves-light">Add</button>
+			<button id="btUpDate" class="btn waves-effect waves-light">Update</button>
+			<button id="btRemove" class="btn waves-effect red darken-1">Remove</button>
+			<button id="btStorage" class="btn waves-effect waves-light">Storage</button>
+        </form>
+    
+    </main>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+crossorigin="anonymous"></script>
+<script src ="main.js"></script>
+</body>
+</html>
