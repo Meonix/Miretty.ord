@@ -7,31 +7,49 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
     crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" href="./Style.css">
     <title>Miretty.order</title>
 </head>
 <body>
     <main>
-        
-        <form>
-			<label for= "nameProduct">Tên Sản phẩm</label><br>
-			<input type="text" name="nameProduct" id="nameProduct"><br>
-			<label for= "price">Giá tiền</label><br>
-			<input type="text" name="price" id="price"><br>
-			<label for= "description">Miêu tả</label><br>
-            <input type="text" name="description" id="description"><br>
-            <label for= "productType">Loại sản phẩm</label><br>
-            <input type="text" name="productType" id="productType"><br>
-            <label for= "linkPhoto">Link ảnh của sản phẩm trên google photo</label><br>
-			<input type="text" name="linkPhoto" id="linkPhoto"><br>
-			<button id="btAdd" class="btn waves-effect waves-light">Add</button><br>
-            <label for= "deleteProduct">Xóa Sản Phẩm với ID:</label><br>
-			<input type="text" name="deleteProductID" id="deleteProductID"><br>
-			<button id="btRemove" class="btn waves-effect red darken-1">Remove</button>
-			<button id="btStorage" class="btn waves-effect waves-light">Storage</button>
-        </form>
+      <ul class="nav" >
+        <li class="nav-item">
+          <a class="nav-link" href="index.html" style="font-size: x-large;">TRANG CHỦ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cart.html"style="font-size: x-large;" onclick="saveCart()">GIỎ HÀNG</a>
+        </li>
+        <li class="nav-item">
+          <span class="badge badge-pill badge-danger" id="badgeStorage"></span>
+        </li>
+      </ul>
+        <section class="section-1 container-fluid p-0">
+          <div id="storageModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="container">
+                <div class ="detail">
     
+                </div>
+              </div>
+              
+            </div>
+          
+          </div>
+            <div class="purchase text-center">
+              <h1>Tất Cả Sản Phẩm</h1>
+    
+              <div class="container">
+                <div class ="sell">
+    
+                </div>
+              </div>
+              
+             
+            </div>
+          </section>
     </main>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
@@ -52,6 +70,6 @@ crossorigin="anonymous"></script>
 integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
 crossorigin="anonymous"></script>
 <script src ="main.js"></script>
-<script src="./adminJquery.js"></script>
+<script src="jquery.js"></script>
 </body>
 </html>

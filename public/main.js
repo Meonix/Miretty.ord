@@ -20,20 +20,22 @@ const price = document.getElementById('price');
 const description = document.getElementById('description');
 const linkPhoto = document.getElementById('linkPhoto');
 const btAdd = document.getElementById('btAdd');
-const btUpDate = document.getElementById('btUpDate');
 const productType = document.getElementById('productType');
 const database = firebase.database();
 const rootRef = database.ref('merchandise');
-
+const btRemove = document.getElementById('btRemove');
+const btStorage = document.getElementById('btStorage');
+const deleteProductID = document.getElementById('deleteProductID');
 if(btAdd){
 	btAdd.addEventListener('click',(e)=>{
     	const autoID = rootRef.push().key //tự tạo key
     var d = new Date();
     var id = Math.floor(d/10).toString();
 		e.preventDefault();
-		rootRef.child(productType.value).child(autoID).set({
+		rootRef.child(id).set({
       nameProduct:nameProduct.value,
       id:id,
+      productType:productType.value,
 			price:price.value,
       description:description.value,
       linkPhoto:linkPhoto.value
@@ -41,4 +43,18 @@ if(btAdd){
 		
 	});
 }
+if(btRemove){
+	btRemove.addEventListener('click',(e) =>{
+		e.preventDefault();
+		rootRef.child(deleteProductID.value).remove();
+	});
+}
+if(btStorage){
+	btStorage.addEventListener('click',(e)=>{
+		window.open('storage.html');
+	});
+}
+
+    
+
 

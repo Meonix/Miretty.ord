@@ -60,8 +60,63 @@ button{
     }
 .cell img{
       width: 100%;
+      vertical-align: middle;
+      border: 0;
       flex-wrap: wrap;
     }
+    .quantity {
+      display: inline-block; }
+     
+     .quantity .input-text.qty {
+      width: 35px;
+      height: 39px;
+      padding: 0 5px;
+      text-align: center;
+      background-color: transparent;
+      border: 1px solid #efefef;
+     }
+     
+     .quantity.buttons_added {
+      text-align: left;
+      position: relative;
+      white-space: nowrap;
+      vertical-align: top; }
+     
+     .quantity.buttons_added input {
+      display: inline-block;
+      margin: 0;
+      vertical-align: top;
+      box-shadow: none;
+     }
+     
+     .quantity.buttons_added .minus,
+     .quantity.buttons_added .plus {
+      padding: 7px 10px 8px;
+      height: 41px;
+      background-color: #ffffff;
+      border: 1px solid #efefef;
+      cursor:pointer;}
+     
+     .quantity.buttons_added .minus {
+      border-right: 0; }
+     
+     .quantity.buttons_added .plus {
+      border-left: 0; }
+     
+     .quantity.buttons_added .minus:hover,
+     .quantity.buttons_added .plus:hover {
+      background: #eeeeee; }
+     
+     .quantity input::-webkit-outer-spin-button,
+     .quantity input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      margin: 0; }
+      
+      .quantity.buttons_added .minus:focus,
+     .quantity.buttons_added .plus:focus {
+      outline: none; }
+     
 :root {
   --Sniglet-font: "Sniglet", cursive;
   --Rubik: "Rubik", cursive;
@@ -419,4 +474,41 @@ footer .column i + i {
   background: rgba(0, 0, 0, 0.815);
   z-index: 9999;
   transition: all 1.5s ease;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
