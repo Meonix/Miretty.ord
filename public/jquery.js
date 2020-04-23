@@ -2,7 +2,6 @@
 $( document ).ready(
   function() {
     var database = firebase.database();
-    
     database.ref('merchandise').on("value",function(snap){
         snap.forEach(function(childSnapshot) {
                 
@@ -11,19 +10,17 @@ $( document ).ready(
                 
       
             let card = document.createElement('div');
-            card.className = "col-xl-3 col-lg-2 col-md-4 col-sm-6 col-12";
+            card.className = "col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6";
             card.innerHTML = `
-            <div>
             <div class="cell"  onclick="showDetail('${String(childData.linkPhoto)}',
             '${String(childData.nameProduct)}','${String(childData.id)}','${String(childData.price)}','${String(childData.description)}')">
-              <div class="infor">
-              <img src="${String(childData.linkPhoto)}" />
-              <h5>${String(childData.nameProduct)}</h5>
-              <p>Loại Sản Phẩm :${String(childData.productType)}</p>
-              <p>id :${String(childData.id)} <br>Giá :${String(childData.price)} </p>
-              <a href="#" id="buy" class="btn btn-danger" >XEM CHI TIẾT</a>
+              <div class="infor" style= " width : 100%; height :100%;">
+                <img src="${String(childData.linkPhoto)}" />
+                <h5 style="white-space: nowrap; overflow: hidden;">${String(childData.nameProduct)}</h5>
+                <p style="white-space: nowrap; overflow: hidden;" >Loại Sản Phẩm :${String(childData.productType)}</p>
+                <p>id :${String(childData.id)} <br>Giá :${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(parseInt(childData.price))} </p>
+                <a href="#" id="buy" class="btn btn-danger" >XEM CHI TIẾT</a>
               </div>
-          </div>
             `;
                 
       $(".sell").append(card);
@@ -74,17 +71,16 @@ function showDetail(linkPhoto,nameProduct,id,price,description){
   card.innerHTML = `
           <div class = "detailItem">
             <div class="row">
-              <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12>
+              <div class="col-xl-2 ">
                 <div class="cell"">
                   <div class="infor">
-                  <img src="${linkPhoto}" style="width: 325px;
-                  height: 420px;"/>
-                  
+                  <img src="${linkPhoto}" style="width : 100%; height :100%;"/>
+                  </div>
                 </div>
               </div>
-              <div class="col-xl-8 col-lg-8 col-md-5 col-sm-12">
+              <div class="col-xl-7">
                 <h5>${nameProduct}</h5>
-                <p>id :${id} <br>Giá :${price} </p>
+                <p>id :${id} <br>Giá :${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(parseInt(price))} </p>
                 <div class="quantity buttons_added">
                       <input type="button" value="-" class="minus">
                       <input type="number"id="inputQuantity" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">

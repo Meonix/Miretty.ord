@@ -23,9 +23,42 @@ const btAdd = document.getElementById('btAdd');
 const productType = document.getElementById('productType');
 const database = firebase.database();
 const rootRef = database.ref('merchandise');
+const userRef = database.ref('users');
 const btRemove = document.getElementById('btRemove');
 const btStorage = document.getElementById('btStorage');
 const deleteProductID = document.getElementById('deleteProductID');
+
+function Buy(){
+    $(document).ready(
+      function(){
+        var d = new Date();
+        var id = Math.floor(d/10).toString();
+        var userName = $("#fname").val();
+        var phone = $("#sdt").val();
+        var address = $("#address").val();
+        var product = "Mặc hàng đã đặt :"
+        for (x of array){
+            product = product + x.id +"/"+x.nameProduct+"   số lượng :"+ x.amount+ " || ";
+        }
+        if(userName.length != 0 && phone.length != 0 && address.length != 0){
+           userRef.child(id).set({
+            userName:userName,
+            id:id,
+            phone:phone,
+            address:address,
+            product:product
+        });
+        alert("Đặt hàng thành công! bạn sẽ được chuyển đến trang chủ.");
+        window.location.href = "index.html";
+        }
+        else{
+          alert("Xin vui lòng điền đầy đủ thông tin.");
+        }
+      }
+    );
+}
+
+	  
 if(btAdd){
 	btAdd.addEventListener('click',(e)=>{
     	const autoID = rootRef.push().key //tự tạo key

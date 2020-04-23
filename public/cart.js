@@ -23,14 +23,15 @@ $( document ).ready(function initCart(){
               <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12>
                 <div class="cell"">
                   <div class="infor">
-                  <img src="${x.linkPhoto}" style="width: 150px; padding: 20px;
-                  height: 160px"/>
+                  <img src="${x.linkPhoto}" style="
+                  height: 160px;
+                  width: 150px; padding: 20px;"/>
                   
                 </div>
               </div>
               <div class="col-xl-8 col-lg-8 col-md-5 col-sm-12">
                 <h5>${x.nameProduct}</h5>
-                <h5>Giá :${x.price}</h5></p>
+                <h5>Giá :${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(parseInt(x.price))}</h5></p>
                 <div class="quantity buttons_added">
                       <input type="button"value="-" class="minus">
                       <input type="number"id="inputQuantity${x.id}" step="1" min="1" max="" name="quantity" value="${x.amount}" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
@@ -47,7 +48,7 @@ $( document ).ready(function initCart(){
            if(lastElement.id.localeCompare(x.id)==0){
                let bt = document.createElement('div');
                bt.innerHTML = `
-               <h4 id="totalPrice">Tổng số tiền :${totalPrice}</h4>
+               <h4 id="totalPrice">Tổng số tiền :${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(parseInt(totalPrice))}</h4>
                <a href="#" class="btn btn-danger" onclick="checkIsChanged()">CẬP NHẬT GIỎ HÀNG </a>
                <a href="storage.html" class="btn btn-danger">HỦY BỎ</a>
                <a href="#" class="btn btn-danger" onclick="Pay()">THANH TOÁN</a><br>
@@ -122,7 +123,7 @@ function update(){
           totalPrice = totalPrice + (parseInt(x.amount)*parseInt(x.price));
           
     }
-    $("#totalPrice").text("Tổng số tiền"+totalPrice);
+    $("#totalPrice").text("Tổng số tiền :"+new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(parseInt(totalPrice)));
   }
   ischange = false;
   productIsDeleted = false;
@@ -141,11 +142,11 @@ function Pay(){
                 <div class="col-xl-8 col-lg-8 col-md-5 col-sm-12">
                   <label for="fname">Họ và tên:</label>
                   <input type="text" class="form-control" placeholder="Họ và tên" id="fname">
-                  <label for="fname">Số điện thoại:</label>
-                  <input type="text" class="form-control" placeholder="Số điện thoại" id="fname">
-                  <label for="fname">Địa chỉ:</label>
-					        <input type="text" class="form-control" placeholder="Địa chỉ (bao gồm tỉnh/thành quận/huyện Phường/ Xã)" id="fname">
-                  <a href="#" class="btn btn-danger" onclick="Submit()" 
+                  <label for="sdt">Số điện thoại:</label>
+                  <input type="text" class="form-control" placeholder="Số điện thoại" id="sdt">
+                  <label for="address">Địa chỉ:</label>
+					        <input type="text" class="form-control" placeholder="Địa chỉ (bao gồm tỉnh/thành quận/huyện Phường/ Xã)" id="address">
+                  <a id="buy" href="#" class="btn btn-danger" onclick="Buy()" 
                   style="margin-top: 20px; margin-bottom: 20px;">ĐẶT HÀNG</a>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12">
