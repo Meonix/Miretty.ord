@@ -26,6 +26,7 @@ const rootRef = database.ref('merchandise');
 const userRef = database.ref('users');
 const btRemove = document.getElementById('btRemove');
 const btStorage = document.getElementById('btStorage');
+const btCustomers = document.getElementById('btCustomers');
 const deleteProductID = document.getElementById('deleteProductID');
 
 function Buy(){
@@ -73,7 +74,11 @@ if(btAdd){
       description:description.value,
       linkPhoto:linkPhoto.value
 		});
-		
+	});
+}
+if(btCustomers){
+	btCustomers.addEventListener('click',(e)=>{
+    window.open('customers.html');
 	});
 }
 if(btRemove){

@@ -87,6 +87,9 @@ function showDetail(linkPhoto,nameProduct,id,price,description){
                       <input type="button" value="+" class="plus">
                 </div>
                 <p>Mô tả :<br>${description}</p>
+                <div class="alert alert-danger alert-dismissible fade show" id="duplicate">
+                  Vật phẩm <strong>Đã có trong giỏ hàng</strong> vui lòng điều chỉnh số lượng ở giỏ hàng.
+                </div>
                 <a href="#" class="btn btn-danger" onclick="Purchase('${nameProduct}','${price}',changeCurrentQuantity(),'${linkPhoto}','${id}')">THÊM VÀO GIỎ</a>
               </div>
             </div>
@@ -94,6 +97,7 @@ function showDetail(linkPhoto,nameProduct,id,price,description){
             `;
             $(".detail").append(card);
   modal.style.display = "block";
+  $("#duplicate").css("display",'none');
 }
 function changeCurrentQuantity(){
   currentQuatity=$("#inputQuantity").val();
@@ -101,14 +105,25 @@ function changeCurrentQuantity(){
 }
 function Purchase(nameProduct,price,amount,linkPhoto,id){
     pd = new Product(nameProduct,price,amount,linkPhoto,id);
-    arrayProduct.push(pd);
-    totalProduct = arrayProduct.length;
     var quantity = 0;
-    for(x of arrayProduct){
-      quantity= quantity + (parseInt(x.amount)*parseInt(x.price));
+    var tmp = false;
+    if(arrayProduct.length==0){
+        arrayProduct.push(pd);
     }
+    else{
+      for(x of arrayProduct){
+        if(x.id == pd.id){
+          tmp = true;
+          $("#duplicate").css("display",'');
+        }
+        quantity= quantity + (parseInt(x.amount)*parseInt(x.price));
+      }
+      if(tmp == false){
+        arrayProduct.push(pd);
+      }
+    }
+    totalProduct = arrayProduct.length;
     $("#badgeStorage").text(totalProduct);
-    
 }
 // Init quantity box
 function wcqib_refresh_quantity_increments() {

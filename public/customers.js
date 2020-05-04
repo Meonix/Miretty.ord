@@ -1,9 +1,9 @@
 $( document ).ready(function() {
     var database = firebase.database();
-    database.ref('merchandise').on("value",function(snap){
+    database.ref('users').on("value",function(snap){
         snap.forEach(function(childSnapshot) {
                 var childData = childSnapshot.val();
-                console.log(childSnapshot.val().linkPhoto);
+                // console.log(childSnapshot.val().address);
                 
             let content = document.getElementById('content');
       
@@ -13,11 +13,10 @@ $( document ).ready(function() {
             <br>
             <div class="cell">
               <div class="infor">
-                <img src="${String(childData.linkPhoto)}" />
-                <h5>${String(childData.nameProduct)}</h5>
-                <p>Loại Sản Phẩm :${String(childData.productType)}</p>
-                <p>id :${String(childData.id)} <br>Giá :${String(childData.price)} </p>
-                <a href="#" class="btn btn-danger" onclick="Purchase()">Đặt hàng</a>
+                <h5>Tên Người Mua: ${String(childData.userName)}</h5>
+                <p>${String(childData.product)}</p>
+                <p>Số điện thoại :${String(childData.phone)} <br>Địa chỉ :${String(childData.address)} </p>
+                <a href="#" class="btn btn-danger" onclick="Purchase()">Xóa</a>
               </div>
             </br>
             `;
