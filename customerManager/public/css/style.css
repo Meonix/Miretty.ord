@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: consolas;
+}
+html,body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background: #000;
+}
+.btn a{
+  position: relative;
+  display: inline-block;
+  padding: 25px 30px;
+  color: #ff9efc;
+  text-align: center;
+  height: 70px;
+  width: 220px;
+  display: block;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  /* -webkit-box-reflect: below 1px linear-gradient(transparent,#0005); */
+}
+.btn a:hover{
+  background: #ff9efc;
+  color: #050801;
+  box-shadow: 0 0 5px #ff9efc,
+              0 0 25px #ff9efc,
+              0 0 50px #ff9efc,
+              0 0 200px #ff9efc;
+}
+.btn a span{
+  position: absolute;
+  display: block;
+}
+.btn a span:nth-child(1){
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#ff9efc);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1
+{
+  0%
+  {
+    left: -100%;
+  }
+  50%,100%
+  {
+    left: 100%;
+  }
+}
+.btn a span:nth-child(1){
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#ff9efc);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1
+{
+  0%
+  {
+    left: -100%;
+  }
+  50%,100%
+  {
+    left: 100%;
+  }
+}
+.btn a span:nth-child(2){
+  top: -100px;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,transparent,#ff9efc);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes animate2
+{
+  0%
+  {
+    top: -100%;
+  }
+  50%,100%
+  {
+    top: 100%;
+  }
+}
+.btn a span:nth-child(3){
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(180deg,transparent,#ff9efc);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes animate3
+{
+  0%
+  {
+    right: -100%;
+  }
+  50%,100%
+  {
+    right: 100%;
+  }
+}
+.btn a span:nth-child(4){
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,transparent,#ff9efc);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4
+{
+  0%
+  {
+    bottom: -100%;
+  }
+  50%,100%
+  {
+    bottom: 100%;
+  }
+}
+
+
+.circular{
+  height: 100px;
+  width: 100px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.circular .inner, .circular .outer, .circular .circle{
+  position: absolute;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.2);
+}
+.circular .inner{
+  top: 50%;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin: -40px 0 0 -40px;
+  background-color: #dde6f0;
+  border-radius: 100%;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+.circular .circle{
+  z-index: 1;
+  box-shadow: none;
+}
+.circular .numb{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 18px;
+  font-weight: 500;
+  color: #4158d0;
+}
+.circular .bar{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 100px, 100px, 50px);
+}
+.circle .bar .progress{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 50px, 100px, 0px);
+}
+.circle .bar .progress, .dot span{
+  background: #4158d0;
+}
+.circle .left .progress{
+  z-index: 1;
+  animation: left 4s linear both;
+}
+@keyframes left {
+  100%{
+    transform: rotate(180deg);
+  }
+}
+.circle .right{
+  z-index: 3;
+  transform: rotate(180deg);
+}
+.circle .right .progress{
+  animation: right 4s linear both;
+  animation-delay: 4s;
+}
+@keyframes right {
+  100%{
+    transform: rotate(180deg);
+  }
+}
+.circle .dot{
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 10px;
+  margin-top: -5px;
+  animation: dot 8s linear both;
+  transform-origin: 0% 50%;
+}
+.circle .dot span {
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+@keyframes dot{
+  0% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(90deg);
+    z-index: 4;
+  }
+  100% {
+    transform: rotate(270deg);
+    z-index: 4;
+  }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hamee Chan</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <!-- <% var result = 0 %>
+    <% for(var i=0; i<count.length; i++) {%>
+    <% result = result + count[i] %>
+    <% } %> -->
+    
+    <div class="circular">
+      <div class="inner"></div>
+      <div class="outer"></div>
+      <div class="numb">
+        <!-- <%- result %> -->
+      </div>
+      <!-- <script>
+        const numb = document.querySelector(".numb");
+        let counter = 0;
+        setInterval(()=>{
+          if(counter == 100){
+            clearInterval();
+          }else{
+            counter+=1;
+            numb.textContent = counter + "%";
+          }
+        }, 80);
+     </script> -->
+      <div class="circle">
+         <div class="dot">
+            <span></span>
+         </div>
+         <div class="bar left">
+            <div class="progress"></div>
+         </div>
+         <div class="bar right">
+            <div class="progress"></div>
+         </div>
+      </div>
+   </div>
+    <div class="btn">
+      <a onclick="canculate()" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Canculate
+	    </a>
+    </div>
+    <% if(count) {%>
+      <script>
+          var numberOfPurchases = '<%- count %>'
+          
+          numberOfPurchases = JSON.parse("[" + numberOfPurchases + "]");
+          numberOfPurchases = numberOfPurchases.filter(function (el) {
+                                return el != null;
+                              })
+          var count = 0
+          console.log(numberOfPurchases)
+
+          function countE(array_elements) {
+              array_elements.sort();
+
+              var current = null;
+              var cnt = 0;
+              for (var i = 0; i < array_elements.length; i++) {
+                  if (array_elements[i] != current) {
+                      if (cnt > 1) {
+                         count = count +1 
+                      }
+                      current = array_elements[i];
+                      cnt = 1;
+                  } else {
+                      cnt++;
+                  }
+              }
+              if (cnt > 1) {
+                count = count +1 
+              }
+
+          }
+          function remove_duplicates(array_){
+          var ret_array = new Array();
+          var k = 0
+          for (var a = array_.length - 1; a >= 0; a--) {
+                for (var b = array_.length - 1; b >= 0; b--) {
+                    if(array_[a] == array_[b] && a != b){
+                        delete array_[b];
+                    }
+                    if(k >1 && b==0){
+                      k = 0 
+                    }
+                }
+                if(array_[a] != undefined){
+                    ret_array.push(array_[a]);
+              }
+                    
+            }
+            return ret_array;
+          }
+          // console.log(countE(numberOfPurchases))
+          // console.log(count)
+          
+          function canculate(){
+            numberOfPurchases = '<%- count %>'
+          
+            numberOfPurchases = JSON.parse("[" + numberOfPurchases + "]");
+            numberOfPurchases = numberOfPurchases.filter(function (el) {
+                                return el != null;
+                              })
+            count = 0
+
+            // console.log("rootArr ="+numberOfPurchases)
+            countE(numberOfPurchases)
+            var newArray = remove_duplicates(numberOfPurchases)
+
+            // console.log("newArray ="+newArray)
+            // console.log("count="+ count)
+            var result = (count*1)/newArray.length
+
+            const numb = document.querySelector(".numb");
+            numb.textContent = result*100 + "%";
+          }
+      </script>
+    <%}%>
+</body>
+</html>
