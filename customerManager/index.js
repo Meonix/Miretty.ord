@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/public'));
 app.set("view engine","ejs")
 app.set("views","./views")
 
-app.get("/customer",(req,res)=>{
+app.get("/",(req,res)=>{
   // console.log(arrayCountCustomerBuy)
   arrayCountCustomerBuy = new Array()
   loadData()
